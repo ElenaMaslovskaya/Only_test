@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CardItem = styled.div`
-    width: 370px;
+    width: 300px;
     height: 130px;
     background-color: transparent;
     color: #42567A;

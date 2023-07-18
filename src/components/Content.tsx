@@ -1,6 +1,8 @@
 import React from 'react';
-import Slider from './Slider';
 import styled from 'styled-components';
+//import CustomSlider from './CustomSlider';
+import Slider from './Slider';
+
 
 const BlockContent = styled.div`
     max-width: 1440px;

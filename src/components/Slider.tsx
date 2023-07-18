@@ -9,33 +9,57 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const SliderContainer = styled.div`
-    width: 80%;
-    height: 135px;
+    width: 100%;
     border: 1px solid red;
-    display: flex;
-    margin : 0 auto;
+    position: relative;
+`;
 
-    .swiper-button-prev,
-    .swiper-button-next {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #ffffff;
-    color: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    }
+const SliderContent = styled.div`
+  width: 85%;
+  margin: 0 auto;
+`;
 
+
+const PrevButton = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(56, 119, 238, 0.1);
+  background-color: #ffffff;
+  color: #3877EE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+  position: absolute;
+  left: 5px
+`;
+
+const NextButton = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(56, 119, 238, 0.1);
+  background-color: #ffffff;
+  color: #3877EE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+  position: absolute;
+  right: 5px
+  }
 `;
 
 const Slider: React.FC = () => {
-
     const sliderSettings: SwiperOptions = {
         modules: [Navigation, Pagination],
         spaceBetween: 30,
         slidesPerView: 3,
+        slidesPerGroup: 3,
+        slidesPerGroupSkip: 3,
         direction: 'horizontal',
         navigation: {
             nextEl: '.swiper-button-next',
@@ -45,32 +69,37 @@ const Slider: React.FC = () => {
             el: '.swiper-pagination',
             clickable: true,
         },
-    }
+    };
+
+    
 
     return (
         <SliderContainer>
-            <Swiper {...sliderSettings}>
-                <div className="swiper-button-prev"></div>
-                <SwiperSlide>
-                    <Card title='title' description='description' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Card title='title' description='description' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Card title='title' description='description' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Card title='title' description='description' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Card title='title' description='description' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Card title='title' description='description' />
-                </SwiperSlide>
-                <div className="swiper-button-next"></div>
-            </Swiper>
+            <PrevButton className="swiper-button-prev">
+            </PrevButton>
+            <SliderContent>
+                <Swiper {...sliderSettings}>
+                    <SwiperSlide>
+                        <Card title='title' description='description' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Card title='title' description='description' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Card title='title' description='description' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Card title='title' description='description' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Card title='title' description='description' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <Card title='title' description='description' />
+                    </SwiperSlide>
+                </Swiper>
+            </SliderContent>
+            <NextButton className="swiper-button-next"></NextButton>
         </SliderContainer>
     );
 }
