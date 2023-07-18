@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-//import CustomSlider from './CustomSlider';
-import Slider from './Slider';
+import TestSlider from './TestSlider';
 
 
 const BlockContent = styled.div`
@@ -96,7 +95,7 @@ const Content: React.FC = () => {
                 <Date color="#5D5FEF">2015</Date>
                 <Date color="#EF5DA8">2022</Date>
             </DatesBlock>
-            <Slider />
+            <TestSlider />
         </BlockContent>
     )
 }
