@@ -17,6 +17,7 @@ const BlockContent = styled.div`
     position: relative;
     justify-content: space-between;
 
+
     &::before {
     content: '';
     position: absolute;
@@ -68,7 +69,7 @@ const ContentTitle = styled.h1`
 
 const DatesBlock = styled.div`
     width: 70%;
-    height: 160px;
+    max-height: 160px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -76,10 +77,15 @@ const DatesBlock = styled.div`
     font-size: 200px;
     line-height: 160px;
     letter-spacing: -2%;
+    font-weight: 700;
 `;
 
-const Date = styled.div`
-    color: ${props => props.color};
+const FirstDate = styled.div`
+    color: #5D5FEF;
+`;
+
+const LastDate = styled.div`
+    color: #EF5DA8;
 `;
 
 const Content: React.FC = () => {
@@ -92,8 +98,8 @@ const Content: React.FC = () => {
             </ContentTitle>
             <div className="circle"></div>
             <DatesBlock>
-                <Date color="#5D5FEF">2015</Date>
-                <Date color="#EF5DA8">2022</Date>
+                <FirstDate>2015</FirstDate>
+                <LastDate>2022</LastDate>
             </DatesBlock>
             <TestSlider />
         </BlockContent>

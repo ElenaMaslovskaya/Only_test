@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { CardProps } from '../utils/data';
 
 const CardItem = styled.div`
     width: 300px;
@@ -20,11 +21,6 @@ const CardDescription = styled.p`
     line-height: 30px;
     color: #42567A;
 `;
-
-interface CardProps {
-    title: string;
-    description: string;
-}
 
 const Card: React.FC<CardProps> = ({ title, description }) => {
     return (

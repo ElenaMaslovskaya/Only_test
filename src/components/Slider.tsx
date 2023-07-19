@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import Card from './Card';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperOptions } from 'swiper/types/swiper-options';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { SliderProps } from '../utils/data';
 
 const SliderContainer = styled.div`
     width: 100%;
@@ -81,7 +82,7 @@ const breakpoints = {
     },
 };
 
-const Slider: React.FC = () => {
+const Slider: React.FC<SliderProps> = ({cards}) => {
     const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
 
     useEffect(() => {
@@ -122,24 +123,11 @@ const Slider: React.FC = () => {
             <PrevButton className="swiper-button-prev">&#8249;</PrevButton>
             <SliderContent>
                 <Swiper {...sliderSettings}>
-                    <SwiperSlide>
-                        <Card title='title' description='description' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Card title='title' description='description' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Card title='title' description='description' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Card title='title' description='description' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Card title='title' description='description' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Card title='title' description='description' />
-                    </SwiperSlide>
+                    {cards.map((card, index) => (
+                        <SwiperSlide key={index}>
+                            <Card {...card} />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </SliderContent>
             <NextButton className="swiper-button-next">&#8250;</NextButton>

@@ -6,6 +6,7 @@ const BlockContainer = styled.div`
   width: 100%;
   height: 100%;
   background: #F4F5F9;
+  font-family: 'PT Sans', 'Bebas Neue', sans-serif;
 `;
 
 const TimePeriods: React.FC = () => {

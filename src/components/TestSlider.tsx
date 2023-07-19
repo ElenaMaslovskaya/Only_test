@@ -7,13 +7,13 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { slidersData } from '../utils/data';
 
 const SliderContainer = styled.div`
     width: 100%;
     height: 275px;
     border: 1px solid black;
     padding: 0px;
-    margin-top: 100px;
     position: relative;
 `;
 
@@ -104,6 +104,7 @@ const TestSlider: React.FC = () => {
         modules: [Navigation, Pagination],
         spaceBetween: 30,
         slidesPerView: 1,
+        slidesPerGroupSkip: 1,
         direction: 'horizontal',
         navigation: {
             nextEl: '.swiper-button-next',
@@ -131,24 +132,11 @@ const TestSlider: React.FC = () => {
                 </NavigationContainer>
 
                 <Swiper {...sliderSettings}>
-                    <SwiperSlide>
-                        <Slider />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Slider />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Slider />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Slider />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Slider />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Slider />
-                    </SwiperSlide>
+                    {slidersData.map((slider, index) => (
+                        <SwiperSlide key={index}>
+                            <Slider {...slider} />
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </SliderContent>
         </SliderContainer>
