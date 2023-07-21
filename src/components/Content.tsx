@@ -89,6 +89,7 @@ const LastDate = styled.div`
 `;
 
 const Content: React.FC = () => {
+    
     return (
         <BlockContent>
             <ContentTitle>

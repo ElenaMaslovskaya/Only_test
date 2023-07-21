@@ -1,27 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import Slider from './Slider';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperOptions } from 'swiper/types/swiper-options';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { slidersData } from '../utils/data';
+import { slidersData } from '../../utils/data';
+import MobileSlider from './MobileSlider';
 
 const SliderContainer = styled.div`
     width: 100%;
-    height: 290px;
-    border: 1px solid black;
+    min-height: 270px;
     padding: 0px;
     position: relative;
-`;
-
-const SliderContent = styled.div`
-    width: 100%
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 `;
 
 const PrevSliderButton = styled.div`
@@ -41,7 +33,7 @@ const PrevSliderButton = styled.div`
     color: #3877EE;
     position: absolute;
     right: 10px;
-    top: 80px;
+    top: 210px;
 
     }
 
@@ -66,8 +58,8 @@ const NextSliderButton = styled.div`
         background-color: #ffffff;
         color: #3877EE;
         position: absolute;
-        right: 10px;
-        top: 80px;
+        left: 70px;
+        top: 210px;;
     }
 
     &.swiper-button-next::after {
@@ -75,27 +67,14 @@ const NextSliderButton = styled.div`
     }
 `;
 
-const NavigationContainer = styled.div`
-    width: 120px;
-    height: 88px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #f1f1f1;
-    border: 2px solid green;
-    margin-bottom: 20px;
-    position: relative;
-`
 
 const PaginationSlider = styled.div`
-    position: absolute;
-    left: 10px;
-    top: 10px;
+  
     }
 `
 
-const TestSlider: React.FC = () => {
+
+const MobileCustomSlider: React.FC = () => {
     const sliderSettings: SwiperOptions = {
         modules: [Navigation, Pagination],
         spaceBetween: 30,
@@ -107,34 +86,31 @@ const TestSlider: React.FC = () => {
             prevEl: '.swiper-button-prev',
         },
         pagination: {
-            type: 'fraction',
-            el: '.swiper-pagination'
+            el: '.swiper-pagination',
+            clickable: true,
+            type: 'bullets',
         }
     };
 
     return (
         <SliderContainer>
-            <SliderContent>
-                <PaginationSlider className='swiper-pagination' />
-                <NavigationContainer>
-                </NavigationContainer>
-                <PrevSliderButton className="swiper-button-prev">
-                    &#8249;
-                </PrevSliderButton>
-                <NextSliderButton className="swiper-button-next">
-                    &#8250;
-                </NextSliderButton>
-
-                <Swiper {...sliderSettings}>
-                    {slidersData.map((slider, index) => (
-                        <SwiperSlide key={index}>
-                            <Slider {...slider} />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </SliderContent>
+            
+            <Swiper {...sliderSettings}>
+                {slidersData.map((slider, index) => (
+                    <SwiperSlide key={index}>
+                        <MobileSlider {...slider} />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+            <PrevSliderButton className="swiper-button-prev">
+                &#8249;
+            </PrevSliderButton>
+            <NextSliderButton className="swiper-button-next">
+                &#8250;
+            </NextSliderButton>
+            <PaginationSlider className='swiper-pagination' />
         </SliderContainer>
     );
 }
 
-export default TestSlider;
+export default MobileCustomSlider;

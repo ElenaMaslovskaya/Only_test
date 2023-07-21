@@ -71,14 +71,11 @@ const NextButton = styled.div`
 `;
 
 const breakpoints = {
-    320: {
+    768: {
         slidesPerView: 1,
     },
-    980: {
+    1080: {
         slidesPerView: 2,
-    },
-    1440: {
-        slidesPerView: 3,
     },
 };
 
