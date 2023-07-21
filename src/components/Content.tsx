@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import TestSlider from './TestSlider';
+import CustomSlider from './CustomSlider';
 
 
 const BlockContent = styled.div`
@@ -65,19 +65,30 @@ const ContentTitle = styled.h1`
     padding-left: 50px;
     border-left: 5px solid;
     border-image: linear-gradient(to bottom, #3877EE, #EF5DA8) 1;
+
+
+    @media (max-width: 1080px) {
+        font-size: 36px;
+        line-height: 48px
+        height: 100px;
+    }
 `;
 
 const DatesBlock = styled.div`
-    width: 70%;
+    width: 80%;
     max-height: 160px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    border: 1px solid green;
     font-size: 200px;
     line-height: 160px;
     letter-spacing: -2%;
     font-weight: 700;
+
+    @media (max-width: 1280px) {
+        font-size: 120px;
+        line-height: 80px;
+    }
 `;
 
 const FirstDate = styled.div`
@@ -102,7 +113,7 @@ const Content: React.FC = () => {
                 <FirstDate>2015</FirstDate>
                 <LastDate>2022</LastDate>
             </DatesBlock>
-            <TestSlider />
+            <CustomSlider />
         </BlockContent>
     )
 }

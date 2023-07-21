@@ -10,8 +10,7 @@ import { SliderProps } from '../utils/data';
 
 const SliderContainer = styled.div`
     width: 100%;
-    height: 135px;
-    border: 1px solid red;
+    min-height: 135px;
     position: relative;
 `;
 
@@ -76,6 +75,10 @@ const breakpoints = {
     },
     1080: {
         slidesPerView: 2,
+    },
+
+    1640: {
+        slidesPerView: 3,
     },
 };
 

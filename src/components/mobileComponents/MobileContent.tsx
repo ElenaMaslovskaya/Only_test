@@ -41,7 +41,7 @@ const ContentTitle = styled.h1`
 `;
 
 const DatesBlock = styled.div`
-    width: 50%;
+    width: 60%;
     min-width: 273px;
     height: 73px;
     margin: 0 auto;

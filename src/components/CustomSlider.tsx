@@ -11,8 +11,7 @@ import { slidersData } from '../utils/data';
 
 const SliderContainer = styled.div`
     width: 100%;
-    height: 290px;
-    border: 1px solid black;
+    min-height: 290px;
     padding: 0px;
     position: relative;
 `;
@@ -83,7 +82,6 @@ const NavigationContainer = styled.div`
     justify-content: space-between;
     padding: 10px;
     background-color: #f1f1f1;
-    border: 2px solid green;
     margin-bottom: 20px;
     position: relative;
 `
@@ -95,7 +93,7 @@ const PaginationSlider = styled.div`
     }
 `
 
-const TestSlider: React.FC = () => {
+const CustomSlider: React.FC = () => {
     const sliderSettings: SwiperOptions = {
         modules: [Navigation, Pagination],
         spaceBetween: 30,
@@ -115,15 +113,15 @@ const TestSlider: React.FC = () => {
     return (
         <SliderContainer>
             <SliderContent>
-                <PaginationSlider className='swiper-pagination' />
                 <NavigationContainer>
-                </NavigationContainer>
+                    <PaginationSlider className='swiper-pagination' />
                 <PrevSliderButton className="swiper-button-prev">
                     &#8249;
                 </PrevSliderButton>
                 <NextSliderButton className="swiper-button-next">
                     &#8250;
-                </NextSliderButton>
+                    </NextSliderButton>
+                </NavigationContainer>
 
                 <Swiper {...sliderSettings}>
                     {slidersData.map((slider, index) => (
@@ -137,4 +135,4 @@ const TestSlider: React.FC = () => {
     );
 }
 
-export default TestSlider;
+export default CustomSlider;
