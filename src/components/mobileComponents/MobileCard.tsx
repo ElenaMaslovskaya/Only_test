@@ -1,33 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CardProps } from '../utils/data';
+import { CardProps } from '../../utils/data';
 
 const CardItem = styled.div`
-    width: 350px;
-    height: 100%;
+    min-width: 160px;
+    max-width: 200px
+    height: 114px;
     background-color: transparent;
     color: #42567A;
-    display: flex;
-    flex-direction: column;
 `;
 
 const CardTitle = styled.h2`
-    height: 20%;
-    font-size: 25px;
-    line-height: 30px;
+    height: 30%;
+    font-size: 16px;
+    line-height: 19px;
     color: #3877EE;
-    margin: 0;
 `;
 
 const CardDescription = styled.p`
-    height: 80%
-    font-size: 20px;
-    line-height: 30px;
+    height: 70%;
+    font-size: 14px;
+    line-height: 20px;
     color: #42567A;
-    margin: 0;
 `;
 
-const Card: React.FC<CardProps> = ({ title, description }) => {
+const MobileCard: React.FC<CardProps> = ({ title, description }) => {
     return (
         <CardItem>
             <CardTitle>{title}</CardTitle>
@@ -36,4 +33,4 @@ const Card: React.FC<CardProps> = ({ title, description }) => {
     );
 }
 
-export default Card;
+export default MobileCard;

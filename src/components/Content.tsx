@@ -1,6 +1,7 @@
 import React from 'react';
-import Slider from './Slider';
 import styled from 'styled-components';
+import CustomSlider from './CustomSlider';
+
 
 const BlockContent = styled.div`
     max-width: 1440px;
@@ -15,6 +16,7 @@ const BlockContent = styled.div`
     padding: 150px 0px 100px 0px;
     position: relative;
     justify-content: space-between;
+
 
     &::before {
     content: '';
@@ -63,25 +65,42 @@ const ContentTitle = styled.h1`
     padding-left: 50px;
     border-left: 5px solid;
     border-image: linear-gradient(to bottom, #3877EE, #EF5DA8) 1;
+
+
+    @media (max-width: 1080px) {
+        font-size: 36px;
+        line-height: 48px
+        height: 100px;
+    }
 `;
 
 const DatesBlock = styled.div`
-    width: 70%;
-    height: 160px;
+    width: 80%;
+    max-height: 160px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    border: 1px solid green;
     font-size: 200px;
     line-height: 160px;
     letter-spacing: -2%;
+    font-weight: 700;
+
+    @media (max-width: 1280px) {
+        font-size: 120px;
+        line-height: 80px;
+    }
 `;
 
-const Date = styled.div`
-    color: ${props => props.color};
+const FirstDate = styled.div`
+    color: #5D5FEF;
+`;
+
+const LastDate = styled.div`
+    color: #EF5DA8;
 `;
 
 const Content: React.FC = () => {
+    
     return (
         <BlockContent>
             <ContentTitle>
@@ -91,10 +110,10 @@ const Content: React.FC = () => {
             </ContentTitle>
             <div className="circle"></div>
             <DatesBlock>
-                <Date color="#5D5FEF">2015</Date>
-                <Date color="#EF5DA8">2022</Date>
+                <FirstDate>2015</FirstDate>
+                <LastDate>2022</LastDate>
             </DatesBlock>
-            <Slider />
+            <CustomSlider />
         </BlockContent>
     )
 }
